@@ -16,7 +16,7 @@ def multiplication_game(length):
     """
     num1 = int(random.random() * 10**length)
     num2 = int(random.random() * 10**length)
-    question = str(num1) + 'X' + str(num2)
+    question = str(num1) + 'x' + str(num2)
     answer = str(num1 * num2)
 
     return question, answer

@@ -4,9 +4,10 @@ which gets harder till the answers are correct
 import random
 
 
-def multiplication_game(length):
+def multiplication_game(score):
     """Asks multiplication of two numbers.
 
+    score is integer
     length is integer
     num1 is integer
     num2 is integer
@@ -14,6 +15,7 @@ def multiplication_game(length):
     answer is integer
     returns question and answer
     """
+    length = score//10 + 2
     num1 = int(random.random() * 10**length)
     num2 = int(random.random() * 10**length)
     question = str(num1) + 'x' + str(num2)
@@ -22,12 +24,26 @@ def multiplication_game(length):
     return question, answer
 
 
-if __name__ == "__main__":
+def question_mode(game, score=0):
+    """Calls a game with a predifined score
 
-    question, answer = multiplication_game(2)
+    game is a function
+    score is integer
+    """
+    question, answer = game(score)
 
-    while answer == input(question):
+    while answer == input(question + '\n'):
         print('good job')
-        question, answer = multiplication_game(2)
+        score += 1
+        question, answer = game(score)
 
-    print('maybe next time')
+    print(f'you scored {score}')
+
+    if '1' == input('Want to try again? (yes: 1)\n'):
+        question_mode(game)
+    else:
+        pass
+
+
+if __name__ == "__main__":
+    question_mode(multiplication_game)

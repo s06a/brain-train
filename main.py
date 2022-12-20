@@ -9,7 +9,7 @@ def question_mode(game, score=0):
     """
     question, answer = game(score)
 
-    while answer == input(question + '\n'):
+    while answer == input(question):
         print('good job')
         score += 1
         question, answer = game(score)

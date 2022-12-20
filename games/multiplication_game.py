@@ -12,13 +12,13 @@ def multiplication_game(score):
     num1 is integer
     num2 is integer
     question is string
-    answer is integer
+    answer is string
     returns question and answer
     """
     length = score//10 + 2
     num1 = int(random.random() * 10**length)
     num2 = int(random.random() * 10**length)
-    question = str(num1) + 'x' + str(num2)
+    question = str(num1) + 'x' + str(num2) + '='
     answer = str(num1 * num2)
 
     return question, answer

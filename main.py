@@ -10,11 +10,11 @@ def question_mode(game, score=0):
     question, answer = game(score)
 
     while answer == input(question):
-        print('good job')
+        print('nice job\n')
         score += 1
         question, answer = game(score)
 
-    print(f'you scored {score}')
+    print(f'you scored {score}\n')
 
     if '1' == input('Want to try again? (yes: 1)\n'):
         question_mode(game)
